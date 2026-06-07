@@ -3,254 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amal P B — Backend Engineer</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Amal P B</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
+    :root {
+      --fg: #c9c9c9;
+      --fg-dim: #555;
+      --fg-bright: #e8e8e8;
+      --bg: #0e0e0e;
+      --line: #222;
+      --accent: #c9c9c9;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--fg-bright); }
+
+    /* layout */
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+
+    /* nav */
+    nav {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+      position: sticky; top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; }
+    .nav-id { color: var(--fg-bright); font-size: 13px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--fg-dim); font-size: 12px; }
+    .nav-links a:hover { color: var(--fg); }
+
+    /* hero */
+    .hero {
+      padding: 72px 0 60px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-name {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      letter-spacing: -1px;
+      color: var(--fg-bright);
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .hero-sub {
+      color: var(--fg-dim);
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      max-width: 520px;
+      color: var(--fg);
+      margin-bottom: 32px;
+      font-size: 13px;
+    }
+    .hero-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hero-links a {
+      font-size: 12px;
+      color: var(--fg-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .hero-links a:hover { color: var(--fg-bright); border-color: var(--fg-dim); }
+
+    /* sections */
+    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    .section-label {
+      font-size: 11px;
+      color: var(--fg-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 36px;
+    }
+
+    /* experience */
+    .exp-item { margin-bottom: 44px; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .exp-company { color: var(--fg-bright); font-size: 13px; }
+    .exp-period { color: var(--fg-dim); font-size: 12px; white-space: nowrap; }
+    .exp-role { color: var(--fg-dim); font-size: 12px; margin-bottom: 14px; }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      padding-left: 16px;
+      position: relative;
+      color: var(--fg);
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--fg-dim); }
+
+    /* skills */
+    .skills-block { margin-bottom: 20px; }
+    .skills-block:last-child { margin-bottom: 0; }
+    .skills-cat { color: var(--fg-dim); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .skills-list { color: var(--fg); font-size: 13px; }
+
+    /* about */
+    .about-text { max-width: 540px; margin-bottom: 32px; }
+    .edu-item { margin-bottom: 20px; }
+    .edu-degree { color: var(--fg-bright); }
+    .edu-school { color: var(--fg-dim); font-size: 12px; }
+
+    /* contact */
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-links a { text-decoration: none; color: var(--fg); font-size: 13px; }
+    .contact-links a:hover { color: var(--fg-bright); }
+    .contact-label { color: var(--fg-dim); display: inline-block; width: 80px; font-size: 12px; }
+
+    /* footer */
+    footer { padding: 28px 0; }
+    footer p { font-size: 11px; color: var(--fg-dim); }
+  </style>
 </head>
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">PB<span>.</span></div>
+<nav>
+  <div class="wrap">
+    <span class="nav-id">amal p b</span>
     <ul class="nav-links">
-      <li><a href="#experience">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#experience">work</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-label">// Available for opportunities</p>
-      <h1 class="hero-name">
-        Amal<br>
-        <span class="line2">P B</span>
-      </h1>
-      <p class="hero-desc">
-        Backend engineer specializing in Ruby on Rails — building high-traffic platforms, 
-        resilient pipelines, and systems that scale. Currently at <strong style="color:var(--text)">Foaps</strong>, previously at Oracle.
-      </p>
-      <div class="hero-cta">
-        <a href="#experience" class="btn btn-primary">View Work ↓</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="photo-frame">
-          <div class="corner tl"></div>
-          <div class="corner tr"></div>
-          <div class="corner bl"></div>
-          <div class="corner br"></div>
-          <img src="dp.jpeg" class="profile-photo" />
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="wrap">
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span class="ticker-item">Ruby on Rails <span>★</span></span>
-      <span class="ticker-item">PostgreSQL <span>★</span></span>
-      <span class="ticker-item">Redis <span>★</span></span>
-      <span class="ticker-item">Kubernetes <span>★</span></span>
-      <span class="ticker-item">Docker <span>★</span></span>
-      <span class="ticker-item">RSpec / TDD <span>★</span></span>
-      <span class="ticker-item">SQS Pipelines <span>★</span></span>
-      <span class="ticker-item">REST APIs <span>★</span></span>
-      <span class="ticker-item">Sidekiq <span>★</span></span>
-      <span class="ticker-item">Open Source <span>★</span></span>
-      <span class="ticker-item">Ruby on Rails <span>★</span></span>
-      <span class="ticker-item">PostgreSQL <span>★</span></span>
-      <span class="ticker-item">Redis <span>★</span></span>
-      <span class="ticker-item">Kubernetes <span>★</span></span>
-      <span class="ticker-item">Docker <span>★</span></span>
-      <span class="ticker-item">RSpec / TDD <span>★</span></span>
-      <span class="ticker-item">SQS Pipelines <span>★</span></span>
-      <span class="ticker-item">REST APIs <span>★</span></span>
-      <span class="ticker-item">Sidekiq <span>★</span></span>
-      <span class="ticker-item">Open Source <span>★</span></span>
+  <div class="hero">
+    <h1 class="hero-name">Amal P B</h1>
+    <p class="hero-sub">backend engineer &nbsp;·&nbsp; ruby on rails &nbsp;·&nbsp; available for opportunities</p>
+    <p class="hero-desc">
+      Building high-traffic platforms and resilient backend systems.
+      Currently sole backend engineer at Foaps / Orderpipe. Previously at Oracle Financial Services.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:pbamal99@gmail.com">pbamal99@gmail.com</a>
+      <a href="https://linkedin.com/in/amalpb" target="_blank">linkedin</a>
+      <a href="https://github.com/meamalpb" target="_blank">github</a>
+      <a href="tel:+919496351873">+91 9496351873</a>
     </div>
   </div>
 
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
-    <p class="section-label reveal">// 01 — Experience</p>
-    <h2 class="section-title reveal">Where I've<br>worked.</h2>
+  <section id="experience">
+    <p class="section-label">experience</p>
 
-    <div class="exp-grid">
-      <div class="exp-item reveal">
-        <div>
-          <p class="exp-period">05/2024 — Present</p>
-        </div>
-        <div>
-          <h3 class="exp-company">Foaps</h3>
-          <p class="exp-role">Backend Engineer</p>
-          <ul class="exp-bullets">
-            <li>Maintained a high-traffic platform integrating with Zomato and Swiggy, handling thousands of daily orders across multiple restaurants.</li>
-            <li>Designed a discount-ordering bot facilitating delivery via Porter — managed menu config, customer interface, and payment settlement exceeding ₹20L in four months.</li>
-            <li>Architected Shoryuken + SQS pipelines to offload bot inbound API calls and remove bottlenecks.</li>
-            <li>Sole backend engineer for 4+ months — overseeing end-to-end development, feature delivery, and production incident resolution.</li>
-            <li>Practiced TDD with RSpec; set up Sentry for faster root-cause analysis.</li>
-          </ul>
-        </div>
-        <div class="exp-location">Kochi, Kerala</div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Foaps / Orderpipe / Lasper Technologies</span>
+        <span class="exp-period">05/2024 – present</span>
       </div>
+      <p class="exp-role">backend engineer &nbsp;·&nbsp; remote</p>
+      <ul class="exp-bullets">
+        <li>Sole backend engineer for 1.5+ years — architecture, feature development, production incident resolution, infrastructure management, and deployment pipelines.</li>
+        <li>Maintained a high-traffic platform integrating with Zomato and Swiggy, handling thousands of daily orders across multiple restaurants.</li>
+        <li>Optimised client report queries (10s → 3s) for 100+ clients using indexing and SQL tuning; extended report history from 3 to 6 months.</li>
+        <li>Designed and implemented a discount-ordering platform facilitating delivery via third-party services — menu config, customer interface, and payment settlement.</li>
+        <li>Maintained the internal React-based admin panel, implementing new features and supporting day-to-day operational workflows.</li>
+        <li>Architected Shoryuken + SQS pipelines to offload inbound API calls and remove bottlenecks.</li>
+        <li>Collaborated with external vendors to troubleshoot and resolve API-related issues.</li>
+        <li>Practised TDD with RSpec; set up Sentry for error tracking and faster root-cause analysis.</li>
+      </ul>
+    </div>
 
-      <div class="exp-item reveal">
-        <div>
-          <p class="exp-period">07/2022 — 05/2024</p>
-        </div>
-        <div>
-          <h3 class="exp-company">Oracle Financial Services</h3>
-          <p class="exp-role">Associate Consultant</p>
-          <ul class="exp-bullets">
-            <li>Customized FLEXCUBE for diverse banking clients, ensuring compliance and seamless functionality.</li>
-            <li>Developed, optimized, and debugged client-specific PL/SQL and Oracle DB solutions to improve system performance.</li>
-            <li>Managed and resolved production issues for critical banking systems.</li>
-            <li>Used Linux to securely access and manage offshore server environments.</li>
-          </ul>
-        </div>
-        <div class="exp-location">Bengaluru, Karnataka</div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Oracle Financial Services Software</span>
+        <span class="exp-period">07/2022 – 05/2024</span>
       </div>
+      <p class="exp-role">associate consultant &nbsp;·&nbsp; bengaluru, karnataka</p>
+      <ul class="exp-bullets">
+        <li>Customized FLEXCUBE for diverse banking clients, ensuring compliance and seamless functionality.</li>
+        <li>Developed, optimized, and debugged client-specific PL/SQL and Oracle DB solutions to improve system performance.</li>
+        <li>Managed and resolved production issues for critical banking systems.</li>
+        <li>Used Linux to securely access and manage offshore server environments.</li>
+      </ul>
+    </div>
 
-      <div class="exp-item reveal">
-        <div>
-          <p class="exp-period">07/2021 — 09/2021</p>
-        </div>
-        <div>
-          <h3 class="exp-company">IIITDM</h3>
-          <p class="exp-role">Full Stack Developer — Intern</p>
-          <ul class="exp-bullets">
-            <li>Built a document-upload platform for students using React (frontend) and Express (backend).</li>
-            <li>Implemented secure, efficient document submission workflows used across the institute.</li>
-          </ul>
-        </div>
-        <div class="exp-location">Remote</div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">IIITDM</span>
+        <span class="exp-period">07/2021 – 09/2021</span>
       </div>
+      <p class="exp-role">full stack developer intern &nbsp;·&nbsp; remote</p>
+      <ul class="exp-bullets">
+        <li>Built a document-upload platform for students using React (frontend) and Express (backend).</li>
+        <li>Implemented secure, efficient document submission workflows used across the institute.</li>
+      </ul>
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section class="skills-section" id="skills">
-    <p class="section-label reveal">// 02 — Skills</p>
-    <h2 class="section-title reveal">Tools of<br>the trade.</h2>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <p class="skill-cat">Backend</p>
-        <div class="skill-list">
-          <span class="skill-tag">Ruby</span>
-          <span class="skill-tag">Ruby on Rails</span>
-          <span class="skill-tag">RSpec</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">PostgreSQL</span>
-          <span class="skill-tag">Redis</span>
-          <span class="skill-tag">Sidekiq</span>
-          <span class="skill-tag">ActiveRecord</span>
-          <span class="skill-tag">ERB</span>
-          <span class="skill-tag">MongoDB</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <p class="skill-cat">Deployments</p>
-        <div class="skill-list">
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">Kubernetes (EKS)</span>
-          <span class="skill-tag">GitHub CI/CD</span>
-          <span class="skill-tag">Sentry</span>
-          <span class="skill-tag">AWS SQS</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <p class="skill-cat">General</p>
-        <div class="skill-list">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Vue.js</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">Bash</span>
-          <span class="skill-tag">Agile / Scrum</span>
-          <span class="skill-tag">PL/SQL</span>
-          <span class="skill-tag">TDD</span>
-        </div>
-      </div>
+  <section id="skills">
+    <p class="section-label">skills</p>
+
+    <div class="skills-block">
+      <p class="skills-cat">backend</p>
+      <p class="skills-list">Ruby, Ruby on Rails, RSpec / TDD, REST APIs, Sidekiq, ActiveRecord, SQL optimisation, Python</p>
+    </div>
+
+    <div class="skills-block">
+      <p class="skills-cat">databases & infra</p>
+      <p class="skills-list">PostgreSQL, Redis, MongoDB, AWS (SQS / EKS), Docker, Kubernetes, GitHub Actions / CI/CD, Sentry</p>
+    </div>
+
+    <div class="skills-block">
+      <p class="skills-cat">general</p>
+      <p class="skills-list">React, TypeScript, JavaScript / Node.js, ERB, Git, Linux / Bash, PL/SQL, Agile / Scrum</p>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <p class="section-label reveal">// 03 — About</p>
-    <h2 class="section-title reveal">The person<br>behind the code.</h2>
-    <div class="about-grid">
-      <div>
-        <p class="about-text reveal">
-          I'm a backend engineer based in <strong>Kochi, Kerala</strong> with a passion for 
-          building reliable, scalable systems. I've gone from implementing banking 
-          solutions at <strong>Oracle</strong> to owning the entire backend of a food-tech 
-          startup as the <strong>sole engineer</strong>.
-        </p>
-        <br><br>
-        <p class="about-text reveal">
-          I care deeply about <strong>code quality</strong> — practicing TDD, writing 
-          meaningful tests, and designing systems that are easy to reason about. 
-          I also contribute to open source through <strong>Ruby for Good</strong>, 
-          building community-focused applications in Ruby and Rails.
-        </p>
-      </div>
-      <div class="reveal">
-        <div class="edu-block">
-          <h3 class="edu-degree">B.Tech, Computer Science</h3>
-          <p class="edu-school">Govt. Engineering College, Thrissur</p>
-          <div class="edu-meta">
-            <div class="edu-meta-item">CGPA <span>8.02 / 10</span></div>
-            <div class="edu-meta-item">Graduated <span>2022</span></div>
-          </div>
-        </div>
-        <br>
-        <div class="edu-block" style="margin-top: 2px;">
-          <h3 class="edu-degree" style="font-size:16px; margin-bottom:8px;">Open Source</h3>
-          <p class="edu-school" style="font-size:13px;">Ruby for Good — collaborative development of community-focused Ruby/Rails applications.</p>
-        </div>
-      </div>
+  <section id="about">
+    <p class="section-label">about</p>
+
+    <p class="about-text">
+      Backend engineer with a focus on Rails and distributed systems.
+      I went from implementing banking software at Oracle to owning the full backend
+      of a food-tech startup solo for over a year and a half.
+      I care about code quality — TDD, meaningful tests, systems that are easy to reason about.
+      I also contribute to open source through Ruby for Good.
+    </p>
+
+    <div class="edu-item">
+      <p class="edu-degree">B.Tech, Computer Science</p>
+      <p class="edu-school">Govt. Engineering College, Thrissur &nbsp;·&nbsp; CGPA 8.02 / 10 &nbsp;·&nbsp; 2022</p>
+    </div>
+
+    <div class="edu-item">
+      <p class="edu-degree">Open Source</p>
+      <p class="edu-school">Ruby for Good — collaborative development of community-focused Ruby / Rails applications.</p>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <p class="section-label" style="text-align:center;">// 04 — Contact</p>
-    <h2 class="section-title">Let's build<br>something.</h2>
-    <p class="contact-sub">Open to roles, collaborations, and interesting problems.</p>
+  <section id="contact">
+    <p class="section-label">contact</p>
     <div class="contact-links">
-      <a href="mailto:pbamal99@gmail.com" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        pbamal99@gmail.com
-      </a>
-      <a href="https://linkedin.com/in/amalpb" target="_blank" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        linkedin.com/in/amalpb
-      </a>
-      <a href="tel:+919496351873" class="contact-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +91 9496351873
-      </a>
+      <div><span class="contact-label">email</span><a href="mailto:pbamal99@gmail.com">pbamal99@gmail.com</a></div>
+      <div><span class="contact-label">linkedin</span><a href="https://linkedin.com/in/amalpb" target="_blank">linkedin.com/in/amalpb</a></div>
+      <div><span class="contact-label">github</span><a href="https://github.com/meamalpb" target="_blank">github.com/meamalpb</a></div>
+      <div><span class="contact-label">phone</span><a href="tel:+919496351873">+91 9496351873</a></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2025 — Amal P B</p>
-    <p>Backend Engineer · Kochi, Kerala</p>
+    <p>amal p b &nbsp;·&nbsp; backend engineer</p>
   </footer>
 
-  <script src="script.js"></script>
+</div>
 </body>
 </html>
